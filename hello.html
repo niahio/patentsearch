@@ -8,3 +8,77 @@
 	HEllo,world!
 	</body>
 </html>
+
+# coding: utf-8
+# 自分の得意な言語で
+# Let's チャレンジ！！
+
+import math
+
+input_nums = input().split(' ')
+S_1 = input_nums[0]
+S_2 = input_nums[1]
+
+#辞書でA~Eと0-4を定義しておく。
+str_dic = {"A":0,"B":1,"C":2,"D":3,"E":4}
+num_dic = {0:"A",1:"B",2:"C",3:"D",4:"E"}
+
+#PAIZA⇒10進数
+def str_to_10num(input_str):
+    strs = list(input_str)
+    if len(input_str) == 5:
+        num_10 = str_dic[strs[0]]*625 + str_dic[strs[1]]*125 + str_dic[strs[2]]*25 + str_dic[strs[3]]*5 + str_dic[strs[4]]*1
+    elif len(input_str) ==4 :
+        num_10 = str_dic[strs[0]]*125 + str_dic[strs[1]]*25 + str_dic[strs[2]]*5 + str_dic[strs[3]]*1
+    elif len(input_str) == 3:
+        num_10 = str_dic[strs[0]]*25 + str_dic[strs[1]]*5 + str_dic[strs[2]]*1
+    elif len(input_str) ==2:
+        num_10 = str_dic[strs[0]]*5 + str_dic[strs[1]]*1
+    elif len(input_str) ==1:
+        num_10 = str_dic[strs[0]]*1
+    else:
+        pass
+    
+    print(num_10)
+    return num_10
+    
+#10進数⇒PAIAZ
+def num10_to_str(input_number):
+    num_5 = math.floor(input_number / 625)
+    nokori1 = input_number - 625*num_5
+    num_4 = math.floor(nokori1 / 125)
+    nokori2 = nokori1 - 125*num_4
+    num_3 = math.floor(nokori2 / 25)
+    nokori3 = nokori2 - 25*num_3
+    num_2 = math.floor(nokori3 /5)
+    num_1 = nokori3 % 5
+    
+    string =  num_dic[num_5]+num_dic[num_4]+num_dic[num_3]+num_dic[num_2]+num_dic[num_1]
+    print(string)
+    if string == "AAAAA":
+        return "A"
+    else:
+        while string[0] == "A":
+            string = string[1:len(string)]
+        return string
+
+paiza_sum = num10_to_str(str_to_10num(S_1)+str_to_10num(S_2))
+#print(paiza_sum)
+1111 + 44
+
+125+25+5+1 + 4*5 +4
+
+156 + 24 = 180
+
+180/125 =1
+
+75/25 = 3 
+
+0/5 = 0
+
+0
+
+1500
+
+ACAA
+
